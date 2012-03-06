@@ -17,4 +17,5 @@ reconciler      reconciler_mk2      0.46
 postprocessor   imdb_augment_data   1.01
 postprocessor   flag_aus_hdtv       0.51
 postprocessor   augment_timezone    0.22
+postprocessor   channel_icons       0.01
 END
