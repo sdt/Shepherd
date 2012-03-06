@@ -1318,14 +1318,6 @@ sub set_icons
 
     eval
     {
-        use lib 'references';
-        require Shepherd::MythTV;
-
-        my $dbh = &Shepherd::MythTV::open_connection;
-        exit unless ($dbh);
-
-	-d "$::CWD/icons" or mkdir "$::CWD/icons" or die "Cannot create directory $::CWD/icons: $!";
-
 	# fetch icon styles
 	print "Contacted database.\n\nFetching icon styles ... ";
 	my $icon_styles = &::fetch_file('http://www.whuffy.com/shepherd/logo_list.txt');
@@ -1372,16 +1364,8 @@ sub set_icons
 
 	    printf "\n\n$ch: [%s]\n",$xmlid;
 
-	    # verify that channel is in database
-	    my ($chan_id,$curr_icon) = $dbh->selectrow_array("SELECT chanid,icon FROM channel WHERE xmltvid LIKE '".$xmlid."'");
-	    if (!$chan_id) {
-		print "  Skipped - not in channels database.\n";
-		next;
-	    } else {
-		print "Icon currently set to: $curr_icon\n";
-	    }
-
 	    # let user choose the icon theme they want. if there is only one choice, choose it for them
+	    my $curr_icon = $::channel_icons->{$xmlid} || 'none';
 	    my $chosen_theme = "";
 	    if (($t->{ch}->{$ch}->{count} == 1) && ($curr_icon eq "none")) {
 		$chosen_theme = $t->{ch}->{$ch}->{first_theme};
@@ -1396,39 +1380,26 @@ sub set_icons
 	    if (($chosen_theme ne "") && ($chosen_theme !~ /^current/)) {
 		my $fname;
 		if ($chosen_theme eq "none") {
-		    $fname = "none";
+		    delete $::channel_icons->{$xmlid};
 		} else {
-		    # always re-fetch icons even if we already had them.
-		    # this simplifies the case if a download was corrupt.
 		    my $url = $t->{ch}->{$ch}->{themes}->{$chosen_theme}->{url};
-		    $fname = "$::CWD/icons/".$t->{ch}->{$ch}->{themes}->{$chosen_theme}->{fname};
 
-		    print "Fetching $url .. ";
-		    if (!(&::fetch_file($url, $fname, 1))) {
-			print "Failed.\n";
-			next;
-		    }
-		    print "done.\n";
+		    $::channel_icons->{$xmlid} = $url;
 		}
-
-		# update database
-		print "Updating database to $fname .. ";
-		$dbh->do("UPDATE channel SET icon='".$fname."' WHERE chanid LIKE $chan_id") ||
-		die "could not update database channel icon: ".$dbh->errstr;
-		print "done.\n";
 	    }
 	}
+
+	&::write_channels_file;
 
 	print "\n\nAll done.\n".
 	      "You will need to restart both mythbackend and mythfrontend for any icon changes to appear.\n\n";
 
-        &Shepherd::MythTV::close_connection;
         &::log("Successfully set MythTV icons.\n");
     };
     if ($@)
     {
-        &::log("Error trying to access MythTV database: $@\n");
-        return undef;
+        &::log("Error trying to update icons: $@\n");
+        return;
     }
 }
 

@@ -67,6 +67,7 @@ our $debug = 0;
 our $region;
 our $channels;
 our $opt_channels;
+our $channel_icons;
 our $components = { };
 our $want_paytv_channels;
 our $pref_title_source;
@@ -1848,8 +1849,8 @@ sub write_config_file
 sub write_channels_file
 {
     write_file($channels_file, 'channels',
-	[ $channels,  $opt_channels ],
-	[ 'channels', 'opt_channels' ]);
+	[ $channels,  $opt_channels,  $channel_icons ],
+	[ 'channels', 'opt_channels', 'channel_icons' ]);
 }
 
 sub write_file
