@@ -20,7 +20,7 @@ my $opt = {
 # parse command line
 GetOptions(
 	'output=s'		=> \$opt->{output_file},
-	'channels_file=s'       => \$opt->{channels_file},
+	'channels-file=s'       => \$opt->{channels_file},
 
 	'help'			=> \$opt->{help},
 	'verbose'		=> \$opt->{help},
@@ -29,19 +29,19 @@ GetOptions(
 	'desc'			=> \$opt->{desc},
 	'v'			=> \$opt->{version});
 
-printf "%s v%s\n",$progname,$version;
+print "$progname v$version\n";
 
 if ($opt->{version} || $opt->{desc} || $opt->{help} || $opt->{ready} ||
     $opt->{output_file} eq "") {
-    	print "Insert channel icons into the XMLTV data\n"
+	print "Insert channel icons into the XMLTV data\n"
 	    if $opt->{desc};
 
-	printf "$progname is ready for operation.\n" if ($opt->{ready});
+	print "$progname is ready for operation.\n" if ($opt->{ready});
 
-	printf "No --output file specified.\n" if ($opt->{output_file} eq "");
+	print "No --output file specified.\n" if ($opt->{output_file} eq "");
 
 	if ($opt->{help} || $opt->{output_file} eq "") {
-		print<<EOF
+		print<<EOF;
 
 usage: $0 [options] {FILE(s)}
 
@@ -49,19 +49,23 @@ Supported options include:
   --output={file}               Send final XMLTV output to {file} (default: $opt->{output_file})
   --channels_file={file}        Use channel config in {file}      (default: $opt->{channels_file})
 EOF
-;
 	}
 	exit(0);
 }
 
-die "no channel file specified\n", if (!$opt->{channels_file});
+die "no channel file specified\n"
+	unless ($opt->{channels_file});
 
 # read channels file
 die "WARNING: channels file $opt->{channels_file} could not be read\n"
 	unless -r $opt->{channels_file};
 
-do $opt->{channels_file};
-die "Error in $opt->{channels_file}: $@" if $@;
+# These get loaded by channels.conf - needs to be 'our' not 'my' so that they
+# are divible to the do($file)
+our ($channels, $opt_channels, $channel_icons);
+
+do $opt->{channels_file}
+	or die "Error in $opt->{channels_file}: $@";
 
 my $fh = new IO::File('>'.$opt->{output_file}) || die "can't open $opt->{output_file} for writing: $!";
 
@@ -91,7 +95,10 @@ exit(0);
 sub channel_cb
 {
 	my $channel = shift;
-	$channel->{icon} = [ { src => 'http://img43.imageshack.us/img43/735/abc86ce2a644c39d7ffd529.png' } ];
+	my $id = $channel->{id};
+	if (exists $channel_icons->{$id}) {
+		$channel->{icon} = [ { src => $channel_icons->{$id} } ];
+	}
 	$writer->write_channel($channel);
 }
 
@@ -102,8 +109,5 @@ sub programme_cb
 	my $prog = shift;
 	$writer->write_programme($prog);
 }
-
-##############################################################################
-
 
 # vim: sw=8:ts=8:noet
