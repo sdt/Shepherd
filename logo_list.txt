@@ -324,6 +324,23 @@ ICON	One HD	yourtv		http://contentserver.com.au/assets/270219_one-hd.gif
 #ICON	One Digital	standard	http://imagestore.ugbox.net/thumb/ten_953df6f5ce62f91c0068d5a3512f.jpg
 #ICON	One Digital	lyngsat		http://www.lyngsat-logo.com/logo/tv/oo/one.jpg
 ICON	One Digital	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/one.png
+ICON	One Digital	frogman_black	https://ash.ms/barstool/tv-channel-icons/icons-frogman-black/png-myth/one.png
+ICON	One Digital	frogman_blue	https://ash.ms/barstool/tv-channel-icons/icons-frogman-blue/png-myth/one.png
+ICON	One Digital	frogman_dark	https://ash.ms/barstool/tv-channel-icons/icons-frogman-dark/png-myth/one.png
+ICON	One Digital	frogman_green	https://ash.ms/barstool/tv-channel-icons/icons-frogman-green/png-myth/one.png
+ICON	One Digital	frogman_orange	https://ash.ms/barstool/tv-channel-icons/icons-frogman-orange/png-myth/one.png
+ICON	One Digital	frogman_plum	https://ash.ms/barstool/tv-channel-icons/icons-frogman-plum/png-myth/one.png
+ICON	One Digital	frogman_warning	https://ash.ms/barstool/tv-channel-icons/icons-frogman-warning/png-myth/one.png
+ICON	One Digital	frogman_yellow	https://ash.ms/barstool/tv-channel-icons/icons-frogman-yellow/png-myth/one.png
+ICON	One Digital	plain_plain	https://ash.ms/barstool/tv-channel-icons/icons-plain-plain/png-myth/one.png
+ICON	One Digital	strawman_azuria	https://ash.ms/barstool/tv-channel-icons/icons-strawman-azuria/png-myth/one.png
+ICON	One Digital	strawman_green	https://ash.ms/barstool/tv-channel-icons/icons-strawman-green/png-myth/one.png
+ICON	One Digital	t8_blue	https://ash.ms/barstool/tv-channel-icons/icons-t8-blue/png-myth/one.png
+ICON	One Digital	t8_green	https://ash.ms/barstool/tv-channel-icons/icons-t8-green/png-myth/one.png
+ICON	One Digital	t8_orange	https://ash.ms/barstool/tv-channel-icons/icons-t8-orange/png-myth/one.png
+ICON	One Digital	t8_plum	https://ash.ms/barstool/tv-channel-icons/icons-t8-plum/png-myth/one.png
+ICON	One Digital	t8_warning	https://ash.ms/barstool/tv-channel-icons/icons-t8-warning/png-myth/one.png
+ICON	One Digital	t8_yellow	https://ash.ms/barstool/tv-channel-icons/icons-t8-yellow/png-myth/one.png
 ICON	One Digital	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/one.png
 ICON	One Digital	yourtv		http://contentserver.com.au/assets/270220_one.gif
 
