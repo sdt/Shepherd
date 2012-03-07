@@ -38,6 +38,7 @@ my %channel_name = (
 my %fallbacks = (
     'Prime HD'                  => 'Prime',
     'SBS HD'                    => 'SBS ONE',
+    'One Digital'               => 'ONE HD',
 );
 
 exit main();
