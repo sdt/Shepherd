@@ -140,7 +140,7 @@ my $cache;
 sub get_url {
     my ($url) = @_;
 
-    my $file = 'update_logolist.cache';
+    my $file = $0 . '.cache';
 
     $cache ||= Shepherd::Common::read_cache($file);
 
