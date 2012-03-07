@@ -293,51 +293,28 @@ ICON	ELEVEN	t8_plum	https://ash.ms/barstool/tv-channel-icons/icons-t8-plum/png-m
 ICON	ELEVEN	t8_warning	https://ash.ms/barstool/tv-channel-icons/icons-t8-warning/png-myth/eleven.png
 ICON	ELEVEN	t8_yellow	https://ash.ms/barstool/tv-channel-icons/icons-t8-yellow/png-myth/eleven.png
 
-#ICON	One HD	standard	http://imagestore.ugbox.net/thumb/ten_953df6f5ce62f91c0068d5a3512f.jpg
-ICON	One HD	lyngsat		http://www.lyngsat-logo.com/logo/tv/oo/one_hd.jpg
-ICON	One HD	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png/one-hd.png
-ICON	ONE HD	frogman_black	https://ash.ms/barstool/tv-channel-icons/icons-frogman-black/png-myth/one.png
-ICON	ONE HD	frogman_blue	https://ash.ms/barstool/tv-channel-icons/icons-frogman-blue/png-myth/one.png
-ICON	ONE HD	frogman_dark	https://ash.ms/barstool/tv-channel-icons/icons-frogman-dark/png-myth/one.png
-ICON	ONE HD	frogman_green	https://ash.ms/barstool/tv-channel-icons/icons-frogman-green/png-myth/one.png
-ICON	ONE HD	frogman_orange	https://ash.ms/barstool/tv-channel-icons/icons-frogman-orange/png-myth/one.png
-ICON	ONE HD	frogman_plum	https://ash.ms/barstool/tv-channel-icons/icons-frogman-plum/png-myth/one.png
-ICON	ONE HD	frogman_warning	https://ash.ms/barstool/tv-channel-icons/icons-frogman-warning/png-myth/one.png
-ICON	ONE HD	frogman_yellow	https://ash.ms/barstool/tv-channel-icons/icons-frogman-yellow/png-myth/one.png
-ICON	ONE HD	plain_plain	https://ash.ms/barstool/tv-channel-icons/icons-plain-plain/png-myth/one.png
-ICON	ONE HD	strawman_azuria	https://ash.ms/barstool/tv-channel-icons/icons-strawman-azuria/png-myth/one.png
-ICON	ONE HD	strawman_green	https://ash.ms/barstool/tv-channel-icons/icons-strawman-green/png-myth/one.png
-ICON	ONE HD	t8_blue	https://ash.ms/barstool/tv-channel-icons/icons-t8-blue/png-myth/one.png
-ICON	ONE HD	t8_green	https://ash.ms/barstool/tv-channel-icons/icons-t8-green/png-myth/one.png
-ICON	ONE HD	t8_orange	https://ash.ms/barstool/tv-channel-icons/icons-t8-orange/png-myth/one.png
-ICON	ONE HD	t8_plum	https://ash.ms/barstool/tv-channel-icons/icons-t8-plum/png-myth/one.png
-ICON	ONE HD	t8_warning	https://ash.ms/barstool/tv-channel-icons/icons-t8-warning/png-myth/one.png
-ICON	ONE HD	t8_yellow	https://ash.ms/barstool/tv-channel-icons/icons-t8-yellow/png-myth/one.png
-ICON	One HD	t8_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png/one-hd.png
-ICON	One HD	yourtv		http://contentserver.com.au/assets/270219_one-hd.gif
-
-#ICON	One Digital	standard	http://imagestore.ugbox.net/thumb/ten_953df6f5ce62f91c0068d5a3512f.jpg
-#ICON	One Digital	lyngsat		http://www.lyngsat-logo.com/logo/tv/oo/one.jpg
-ICON	One Digital	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png/one.png
-ICON	One Digital	frogman_black	https://ash.ms/barstool/tv-channel-icons/icons-frogman-black/png-myth/one.png
-ICON	One Digital	frogman_blue	https://ash.ms/barstool/tv-channel-icons/icons-frogman-blue/png-myth/one.png
-ICON	One Digital	frogman_dark	https://ash.ms/barstool/tv-channel-icons/icons-frogman-dark/png-myth/one.png
-ICON	One Digital	frogman_green	https://ash.ms/barstool/tv-channel-icons/icons-frogman-green/png-myth/one.png
-ICON	One Digital	frogman_orange	https://ash.ms/barstool/tv-channel-icons/icons-frogman-orange/png-myth/one.png
-ICON	One Digital	frogman_plum	https://ash.ms/barstool/tv-channel-icons/icons-frogman-plum/png-myth/one.png
-ICON	One Digital	frogman_warning	https://ash.ms/barstool/tv-channel-icons/icons-frogman-warning/png-myth/one.png
-ICON	One Digital	frogman_yellow	https://ash.ms/barstool/tv-channel-icons/icons-frogman-yellow/png-myth/one.png
-ICON	One Digital	plain_plain	https://ash.ms/barstool/tv-channel-icons/icons-plain-plain/png-myth/one.png
-ICON	One Digital	strawman_azuria	https://ash.ms/barstool/tv-channel-icons/icons-strawman-azuria/png-myth/one.png
-ICON	One Digital	strawman_green	https://ash.ms/barstool/tv-channel-icons/icons-strawman-green/png-myth/one.png
-ICON	One Digital	t8_blue	https://ash.ms/barstool/tv-channel-icons/icons-t8-blue/png-myth/one.png
-ICON	One Digital	t8_green	https://ash.ms/barstool/tv-channel-icons/icons-t8-green/png-myth/one.png
-ICON	One Digital	t8_orange	https://ash.ms/barstool/tv-channel-icons/icons-t8-orange/png-myth/one.png
-ICON	One Digital	t8_plum	https://ash.ms/barstool/tv-channel-icons/icons-t8-plum/png-myth/one.png
-ICON	One Digital	t8_warning	https://ash.ms/barstool/tv-channel-icons/icons-t8-warning/png-myth/one.png
-ICON	One Digital	t8_yellow	https://ash.ms/barstool/tv-channel-icons/icons-t8-yellow/png-myth/one.png
-ICON	One Digital	t8_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png/one.png
-ICON	One Digital	yourtv		http://contentserver.com.au/assets/270220_one.gif
+#ICON	ONE	standard	http://imagestore.ugbox.net/thumb/ten_953df6f5ce62f91c0068d5a3512f.jpg
+ICON	ONE	lyngsat		http://www.lyngsat-logo.com/logo/tv/oo/one_hd.jpg
+ICON	ONE	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png/one-hd.png
+ICON	ONE	frogman_black	https://ash.ms/barstool/tv-channel-icons/icons-frogman-black/png-myth/one.png
+ICON	ONE	frogman_blue	https://ash.ms/barstool/tv-channel-icons/icons-frogman-blue/png-myth/one.png
+ICON	ONE	frogman_dark	https://ash.ms/barstool/tv-channel-icons/icons-frogman-dark/png-myth/one.png
+ICON	ONE	frogman_green	https://ash.ms/barstool/tv-channel-icons/icons-frogman-green/png-myth/one.png
+ICON	ONE	frogman_orange	https://ash.ms/barstool/tv-channel-icons/icons-frogman-orange/png-myth/one.png
+ICON	ONE	frogman_plum	https://ash.ms/barstool/tv-channel-icons/icons-frogman-plum/png-myth/one.png
+ICON	ONE	frogman_warning	https://ash.ms/barstool/tv-channel-icons/icons-frogman-warning/png-myth/one.png
+ICON	ONE	frogman_yellow	https://ash.ms/barstool/tv-channel-icons/icons-frogman-yellow/png-myth/one.png
+ICON	ONE	plain_plain	https://ash.ms/barstool/tv-channel-icons/icons-plain-plain/png-myth/one.png
+ICON	ONE	strawman_azuria	https://ash.ms/barstool/tv-channel-icons/icons-strawman-azuria/png-myth/one.png
+ICON	ONE	strawman_green	https://ash.ms/barstool/tv-channel-icons/icons-strawman-green/png-myth/one.png
+ICON	ONE	t8_blue	https://ash.ms/barstool/tv-channel-icons/icons-t8-blue/png-myth/one.png
+ICON	ONE	t8_green	https://ash.ms/barstool/tv-channel-icons/icons-t8-green/png-myth/one.png
+ICON	ONE	t8_orange	https://ash.ms/barstool/tv-channel-icons/icons-t8-orange/png-myth/one.png
+ICON	ONE	t8_plum	https://ash.ms/barstool/tv-channel-icons/icons-t8-plum/png-myth/one.png
+ICON	ONE	t8_warning	https://ash.ms/barstool/tv-channel-icons/icons-t8-warning/png-myth/one.png
+ICON	ONE	t8_yellow	https://ash.ms/barstool/tv-channel-icons/icons-t8-yellow/png-myth/one.png
+ICON	ONE	t8_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png/one-hd.png
+ICON	ONE	yourtv		http://contentserver.com.au/assets/270219_one-hd.gif
 
 ICON	SBS ONE		standard	http://img196.imageshack.us/img196/7526/sbs861c4b17d8fc1856b814.png
 ICON	SBS ONE		lyngsat		http://www.lyngsat-logo.com/logo/tv/ss/sbs.jpg
