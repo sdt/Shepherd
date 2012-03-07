@@ -1,0 +1,139 @@
+#!/usr/bin/env perl
+
+# Scrapes logo themes from https://ash.ms/projects/channels
+# Writes to STDOUT in logo_list.txt format
+
+use strict;
+use warnings;
+use lib 'references';
+
+use Shepherd::Common qw();
+
+# Map ash.ms channel names to shepherd names
+my %channel_name = (
+    'abc'                        => 'ABC1',
+    'abc-news-24'                => 'ABC News 24',
+    'abc2'                       => 'ABC2 / ABC4',
+    'abc3'                       => 'ABC3',
+    'eleven'                     => 'ELEVEN',
+    'gem'                        => 'GEM',
+    'go'                         => 'GO!',
+    'nbn'                        => 'NBN',
+    'nine'                       => 'Nine',
+    'one'                        => 'ONE HD',
+    'prime'                      => 'Prime',
+    'sbs'                        => 'SBS ONE',
+    'sbs-two'                    => 'SBS TWO',
+    'seven'                      => 'Seven',
+    'seven-mate'                 => '7mate',
+    'seven-two'                  => '7TWO',
+    'southern-cross-television'  => 'SCTV',
+    'southern-cross-ten'         => 'SC10',
+    'ten'                        => 'TEN',
+    'win'                        => 'WIN',
+);
+
+exit main();
+
+#------------------------------------------------------------------
+
+sub main {
+    my $base_url = 'https://ash.ms/barstool/tv-channel-icons/';
+    my @themes = get_theme_list($base_url);
+
+    my %theme;
+    my %channel;
+
+    for my $name (@themes) {
+        my $t = get_theme($name, $base_url);
+        next unless $t;
+
+        $theme{ $t->{name} } = $t;
+
+        for my $i (keys %{ $t->{icons} }) {
+            push(@{ $channel{$i} }, $t);
+        }
+    }
+
+    for my $name (sort keys %theme) {
+        my $t = $theme{$name};
+        print_tabbed('THEME', $name, $t->{title}, $t->{preview});
+    }
+    print "\n";
+
+    for my $name (sort keys %channel) {
+        for my $t (@{ $channel{$name} }) {
+            print_tabbed('ICON', $name, $t->{name}, $t->{icons}->{$name});
+        }
+        print "\n";
+    }
+
+    return 0;
+}
+
+sub print_tabbed {
+    print join("\t", @_), "\n";
+}
+
+sub get_theme_list {
+    my ($url) = @_;
+
+    my $content = get_url($url);
+    my @themes = ( $content =~ m{folder\.gif.*href="icons-(.*?)/"}g );
+    return @themes;
+}
+
+sub get_theme {
+    my ($name, $base_url) = @_;
+
+    my $preview_url = ($name eq 'plain-plain')
+        ?  'https://ash.ms/projects/channels/plain-australian-tv-logos'
+        :  "https://ash.ms/projects/channels/$name-tv-icon-theme";
+    my $content = get_url($preview_url);
+    return unless $content;
+
+    my ($title) = ( $content =~ m{<title>\s*(.*)\s*</title>}i );
+
+    my $theme_name = $name;
+    $theme_name =~ s/-/_/;
+
+    my $icon_url = "${base_url}icons-$name/png-myth/";
+
+    return {
+        name    => $theme_name,
+        preview => $preview_url,
+        title   => $title,
+        icons   => get_theme_icons($icon_url),
+    };
+}
+
+sub get_theme_icons {
+    my ($url) = @_;
+
+    my $content = get_url($url);
+    my @names = ( $content =~ m{href="(.*?)\.png">\1.png<}g );
+    my %icon;
+    for my $name (@names) {
+        my $channel_name = $channel_name{$name} or next;
+        $icon{$channel_name} = "$url$name.png";
+    }
+    return \%icon;
+}
+
+# Be nice to ash.ms - cache the pages we already have
+my $cache;
+sub get_url {
+    my ($url) = @_;
+
+    my $file = 'update_logolist.cache';
+
+    $cache ||= Shepherd::Common::read_cache($file);
+
+    if (!exists $cache->{$url}) {
+        $cache->{$url} = Shepherd::Common::get_url(url => $url, retries => 0)
+            or return;
+        Shepherd::Common::write_cache($file, $cache);
+    }
+
+    return $cache->{$url};
+}
