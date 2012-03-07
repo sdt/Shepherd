@@ -9,11 +9,7 @@
 THEME	standard	Standard Free-to-air logos	http://svn.whuffy.com/index.fcgi/wiki/channel_icons
 THEME	lyngsat		Logos from lyngsat-logo.com	http://www.lyngsat-logo.com/tvcountry/au_1.html
 #THEME	tatey_blue	Blue themed logos (Tatey)	http://tatey.com/mythtv.php
-THEME	frogman_plain	Plain themed logos (Frogman)	http://ash.ms/projects/channels/plain-australian-tv-logos
-THEME	frogman_blue	Blue themed logos (Frogman)	http://ash.ms/projects/channels/logos/frogman/blue
-THEME	frogman_green	Green themed logos (Frogman)	http://ash.ms/projects/channels/logos/frogman/green
 THEME	frogman_hybrid	Hybrid themed logos (Frogman)	http://ash.ms/projects/channels/logos/frogman/hybrid
-THEME	t8_blue		Blue themed logos (T8)		http://ash.ms/projects/channels/logos/t8/blue
 THEME	t8_hybrid	Hybrid themed logos (T8)	http://ash.ms/projects/channels/logos/t8/hybrid
 THEME	foxtel		Standard Foxtel logos		http://www.foxtel.com.au/channel/lineup.html
 THEME	wikipedia	Station logos from wikipedia	http://en.wikipedia.org/
@@ -26,11 +22,7 @@ ICON	ABC1	standard	http://img43.imageshack.us/img43/735/abc86ce2a644c39d7ffd529.
 ICON	ABC1	wikipedia	http://upload.wikimedia.org/wikipedia/en/thumb/8/8e/ABC1.svg/180px-ABC1.svg.png
 ICON	ABC1	lyngsat		http://www.lyngsat-logo.com/logo/tv/aa/abc_tv_au.jpg
 #ICON	ABC1	tatey_blue	http://tatey.com/images/au_network_logos/abc.png
-ICON	ABC1	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/abc.png
-ICON	ABC1	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/abc.png
-ICON	ABC1	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/abc.png
 ICON	ABC1	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/abc.png
-ICON	ABC1	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/abc.png
 ICON	ABC1	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/abc.png
 ICON	ABC1	yourtv		http://contentserver.com.au/assets/270208_abc-1.gif
 
@@ -38,122 +30,70 @@ ICON	ABC2 / ABC4	standard	http://img691.imageshack.us/img691/1412/abc25c10eb4809
 ICON	ABC2 / ABC4	wikipedia	http://upload.wikimedia.org/wikipedia/en/thumb/3/38/ABC2.svg/180px-ABC2.svg.png
 ICON	ABC2 / ABC4	lyngsat		http://www.lyngsat-logo.com/logo/tv/aa/abc2_au.jpg
 #ICON	ABC2 / ABC4	tatey_blue	http://tatey.com/images/au_network_logos/abc2.png
-ICON	ABC2 / ABC4	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/abc2.png
-ICON	ABC2 / ABC4	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/abc2.png
-ICON	ABC2 / ABC4	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/abc2.png
 ICON	ABC2 / ABC4	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/abc2.png
-ICON	ABC2 / ABC4	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/abc2.png
 ICON	ABC2 / ABC4	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/abc2.png
 ICON	ABC2 / ABC4	yourtv		http://contentserver.com.au/assets/270209_abc-2.gif
 
 #ICON    ABC3    standard        http://imagestore.ugbox.net/thumb/abc2_5c10eb48094ce03b5e46e8c0ec2.jpg
 ICON    ABC3    wikipedia       http://upload.wikimedia.org/wikipedia/en/thumb/f/fd/ABC3_logo.png/180px-ABC3_logo.png
 #ICON    ABC3    lyngsat         http://www.lyngsat-logo.com/logo/tv/aa/abc2_au.jpg
-ICON    ABC3    frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/abc3.png
-ICON    ABC3    frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/abc3.png
-ICON    ABC3    frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/abc3.png
 ICON    ABC3    frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/abc3.png
-ICON    ABC3    t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/abc3.png
 ICON    ABC3    t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/abc3.png
 ICON	ABC3	yourtv		http://contentserver.com.au/assets/270210_abc-3.gif
 
 ICON	ABC News 24	wikipedia   http://upload.wikimedia.org/wikipedia/en/thumb/6/6c/ABC_News_24.svg/217px-ABC_News_24.svg.png
-ICON	ABC News 24	frogman_plain   http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/abc-news-24.png
-ICON	ABC News 24	frogman_blue    http://barstool.ash.ms/tv-channel-icons/icons-frogman-blue/png/abc-news-24.png
-ICON	ABC News 24	frogman_green   http://barstool.ash.ms/tv-channel-icons/icons-frogman-green/png/abc-news-24.png
-ICON	ABC News 24	t8_blue	    http://barstool.ash.ms/tv-channel-icons/icons-t8-blue/png/abc-news-24.png
 ICON	ABC News 24	yourtv	    http://contentserver.com.au/assets/275718_275459_compressed_abc_radio_24_smallest.gif
 
 ICON	Seven	standard	http://imagestore.ugbox.net/thumb/seven_e69f30e8baff7fcbab28feb8b9.jpg
 ICON	Seven	lyngsat		http://www.lyngsat-logo.com/logo/tv/num/7network_aus.jpg
 #ICON	Seven	tatey_blue	http://tatey.com/images/au_network_logos/seven.png
-ICON	Seven	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/seven.png
-ICON	Seven	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/seven.png
-ICON	Seven	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/seven.png
 ICON	Seven	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/seven.png
-ICON	Seven	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/seven.png
 ICON	Seven	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/seven.png
 ICON	Seven	yourtv		http://contentserver.com.au/assets/270212_7.gif
 
-ICON	7mate	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/seven-mate.png
-ICON	7mate	frogman_blue	http://barstool.ash.ms/tv-channel-icons/icons-frogman-blue/png/seven-mate.png
-ICON	7mate	frogman_green	http://barstool.ash.ms/tv-channel-icons/icons-frogman-green/png/seven-mate.png
-ICON	7mate	t8_blue		http://barstool.ash.ms/tv-channel-icons/icons-t8-blue/png/seven-mate.png
 ICON	7mate	yourtv		http://contentserver.com.au/assets/283993_7_mate_80x60.jpg
 
-ICON	7TWO	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/seven-two.png
-ICON    7TWO	frogman_blue    http://ash.ms/projects/channels/download/icons-frogman-blue/png/seven-two.png
-ICON    7TWO	frogman_green   http://ash.ms/projects/channels/download/icons-frogman-green/png/seven-two.png
 ICON    7TWO	frogman_hybrid  http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/seven-two.png
-ICON    7TWO	t8_blue         http://ash.ms/projects/channels/download/icons-t8-blue/png/seven-two.png
 ICON    7TWO	t8_hybrid       http://ash.ms/projects/channels/download/icons-t8-hybrid/png/seven-two.png
 ICON	7TWO	yourtv		http://contentserver.com.au/assets/270205_7-two.gif
 
 ICON	Nine	standard	http://imagestore.ugbox.net/thumb/nine_53151871dd779ac2304e05ce9b2.jpg
 ICON	Nine	lyngsat		http://www.lyngsat-logo.com/logo/tv/num/9network.jpg
 #ICON	Nine	tatey_blue	http://tatey.com/images/au_network_logos/nine.png
-ICON	Nine	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/nine.png
-ICON	Nine	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/nine.png
-ICON	Nine	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/nine.png
 ICON	Nine	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/nine.png
-ICON	Nine	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/nine.png
 ICON	Nine	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/nine.png
 ICON	Nine	yourtv		http://contentserver.com.au/assets/270211_9.gif
 
-ICON	GEM	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/gem.png
-ICON	GEM	frogman_blue	http://barstool.ash.ms/tv-channel-icons/icons-frogman-blue/png/gem.png
-ICON	GEM	frogman_green	http://barstool.ash.ms/tv-channel-icons/icons-frogman-green/png/gem.png
-ICON	GEM	t8_blue		http://barstool.ash.ms/tv-channel-icons/icons-t8-blue/png/gem.png
 ICON	GEM	yourtv		http://contentserver.com.au/assets/284321_gem_logo_violet80x60.jpg
 
-ICON    GO!     frogman_plain   http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/go.png
-ICON    GO!     frogman_blue    http://ash.ms/projects/channels/download/icons-frogman-blue/png/go.png
-ICON    GO!     frogman_green   http://ash.ms/projects/channels/download/icons-frogman-green/png/go.png
 ICON    GO!     frogman_hybrid  http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/go.png
-ICON    GO!     t8_blue         http://ash.ms/projects/channels/download/icons-t8-blue/png/go.png
 ICON    GO!     t8_hybrid       http://ash.ms/projects/channels/download/icons-t8-hybrid/png/go.png
 ICON	GO!	yourtv		http://contentserver.com.au/assets/270213_go.gif
 
 ICON	TEN	standard	http://imagestore.ugbox.net/thumb/ten_953df6f5ce62f91c0068d5a3512f.jpg
 ICON	TEN	lyngsat		http://www.lyngsat-logo.com/logo/tv/tt/ten_network.jpg
 #ICON	TEN	tatey_blue	http://tatey.com/images/au_network_logos/ten.png
-ICON	TEN	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/ten.png
-ICON	TEN	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/ten.png
-ICON	TEN	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/ten.png
 ICON	TEN	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/ten.png
-ICON	TEN	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/ten.png
 ICON	TEN	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/ten.png
 ICON	TEN	yourtv		http://contentserver.com.au/assets/270216_ten.gif
 
 ICON	TEN HD	standard	http://imagestore.ugbox.net/thumb/ten_953df6f5ce62f91c0068d5a3512f.jpg
 ICON	TEN HD	lyngsat		http://www.lyngsat-logo.com/logo/tv/tt/ten_network_hd.jpg
 #ICON	TEN HD	tatey_blue	http://tatey.com/images/au_network_logos/ten-hd.png
-ICON	TEN HD	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/ten-hd.png
-ICON	TEN HD	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/ten-hd.png
-ICON	TEN HD	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/ten-hd.png
 ICON	TEN HD	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/ten-hd.png
-ICON	TEN HD	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/ten-hd.png
 ICON	TEN HD	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/ten-hd.png
 
 #ICON	One HD	standard	http://imagestore.ugbox.net/thumb/ten_953df6f5ce62f91c0068d5a3512f.jpg
 ICON	One HD	lyngsat		http://www.lyngsat-logo.com/logo/tv/oo/one_hd.jpg
 #ICON	One HD	tatey_blue	http://tatey.com/images/au_network_logos/one-hd.png
-ICON	One HD	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/one-hd.png
-ICON	One HD	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/one-hd.png
-ICON	One HD	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/one-hd.png
 ICON	One HD	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/one-hd.png
-ICON	One HD	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/one-hd.png
 ICON	One HD	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/one-hd.png
 ICON	One HD	yourtv		http://contentserver.com.au/assets/270219_one-hd.gif
 
 #ICON	One Digital	standard	http://imagestore.ugbox.net/thumb/ten_953df6f5ce62f91c0068d5a3512f.jpg
 #ICON	One Digital	lyngsat		http://www.lyngsat-logo.com/logo/tv/oo/one.jpg
 #ICON	One Digital	tatey_blue	http://tatey.com/images/au_network_logos/one.png
-ICON	One Digital	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/one.png
-ICON	One Digital	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/one.png
-ICON	One Digital	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/one.png
 ICON	One Digital	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/one.png
-ICON	One Digital	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/one.png
 ICON	One Digital	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/one.png
 ICON	One Digital	yourtv		http://contentserver.com.au/assets/270220_one.gif
 
@@ -161,77 +101,45 @@ ICON	One Digital	yourtv		http://contentserver.com.au/assets/270220_one.gif
 ICON	SBS ONE		standard	http://img196.imageshack.us/img196/7526/sbs861c4b17d8fc1856b814.png
 ICON	SBS ONE		lyngsat		http://www.lyngsat-logo.com/logo/tv/ss/sbs.jpg
 #ICON	SBS ONE		tatey_blue	http://tatey.com/images/au_network_logos/sbs.png
-ICON    SBS ONE         frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/sbs.png
-ICON	SBS ONE		frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/sbs.png
-ICON	SBS ONE		frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/sbs.png
 ICON	SBS ONE		frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/sbs.png
-ICON	SBS ONE		t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/sbs.png
 ICON	SBS ONE		t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/sbs.png
 ICON	SBS ONE		yourtv		http://contentserver.com.au/assets/270224_sbs-one.gif
 
 #ICON    SBS TWO         standard        http://imagestore.ugbox.net/thumb/sbs_861c4b17d8fc1856b8142446ddf6.jpg
-ICON    SBS TWO         frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/sbs-two.png
-ICON    SBS TWO         frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/sbs-two.png
-ICON    SBS TWO         frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/sbs-two.png
 ICON    SBS TWO         frogman_hybrid 	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/sbs-two.png
-ICON    SBS TWO         t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/sbs-two.png
 ICON    SBS TWO         t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/sbs-two.png
 ICON	SBS TWO		yourtv		http://contentserver.com.au/assets/270225_sbs-two.gif
 
 ICON	SBS HD	standard	http://img196.imageshack.us/img196/7526/sbs861c4b17d8fc1856b814.png
 #ICON	SBS HD	tatey_blue	http://tatey.com/images/au_network_logos/sbs-hd.png
-ICON    SBS HD  frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/sbs-hd.png
-ICON	SBS HD	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/sbs-hd.png
-ICON	SBS HD	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/sbs-hd.png
 ICON	SBS HD	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/sbs-hd.png
-ICON	SBS HD	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/sbs-hd.png
 ICON	SBS HD	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/sbs-hd.png
 ICON	SBS HD	yourtv		http://contentserver.com.au/assets/270223_sbs-hd.gif
 
 # miscellaneous regional logos
 
 ICON	WIN	lyngsat		http://www.lyngsat-logo.com/logo/tv/ww/win_tv_au.jpg
-ICON	WIN	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/win.png
-ICON    WIN	frogman_blue    http://ash.ms/projects/channels/download/icons-frogman-blue/png/win.png
-ICON    WIN	frogman_green   http://ash.ms/projects/channels/download/icons-frogman-green/png/win.png
 ICON    WIN	frogman_hybrid  http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/win.png
-ICON    WIN	t8_blue         http://ash.ms/projects/channels/download/icons-t8-blue/png/win.png
 ICON    WIN	t8_hybrid       http://ash.ms/projects/channels/download/icons-t8-hybrid/png/win.png
 ICON	WIN	yourtv		http://contentserver.com.au/assets/270231_win.gif
 
 ICON	SC10	lyngsat		http://www.lyngsat-logo.com/logo/tv/ss/southern_cross_ten.jpg
-ICON	SC10	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/southern-cross-ten.png
-ICON    SC10	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/southern-cross-ten.png
-ICON    SC10	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/southern-cross-ten.png
 ICON    SC10	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/southern-cross-ten.png
-ICON    SC10	t8_blue	http://ash.ms/projects/channels/download/icons-t8-blue/png/southern-cross-ten.png
 ICON    SC10	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/southern-cross-ten.png
 ICON	SC10	yourtv		http://contentserver.com.au/assets/270228_sthncrosstv-ten.gif
 
 ICON    SCTV  lyngsat         http://www.lyngsat-logo.com/logo/tv/ss/southern_cross_tv.jpg
-ICON    SCTV  frogman_plain   http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/southern-cross-television.png
-ICON    SCTV  frogman_blue    http://ash.ms/projects/channels/download/icons-frogman-blue/png/southern-cross-television.png
-ICON    SCTV  frogman_green   http://ash.ms/projects/channels/download/icons-frogman-green/png/southern-cross-television.png
 ICON    SCTV  frogman_hybrid  http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/southern-cross-television.png
-ICON    SCTV  t8_blue         http://ash.ms/projects/channels/download/icons-t8-blue/png/southern-cross-television.png
 ICON    SCTV  t8_hybrid       http://ash.ms/projects/channels/download/icons-t8-hybrid/png/southern-cross-television.png
 ICON	SCTV	yourtv		http://contentserver.com.au/assets/270226_sthncrosstv.gif
 
 ICON    Prime	wikipedia       http://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/PrimeTelevision2001.svg/200px-PrimeTelevision2001.svg.png
-ICON    Prime   frogman_plain   http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/prime.png
-ICON    Prime  	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/prime.png
-ICON    Prime  	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/prime.png
 ICON    Prime  	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/prime.png
-ICON    Prime  	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/prime.png
 ICON    Prime  	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/prime.png
 ICON	Prime	yourtv		http://contentserver.com.au/assets/270221_prime.gif
 
 ICON	Prime HD	wikipedia	http://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/PrimeTelevision2001.svg/200px-PrimeTelevision2001.svg.png
-ICON	Prime HD	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/prime-hd.png
-ICON    Prime HD  	frogman_blue    http://ash.ms/projects/channels/download/icons-frogman-blue/png/prime-hd.png
-ICON    Prime HD  	frogman_green   http://ash.ms/projects/channels/download/icons-frogman-green/png/prime-hd.png
 ICON    Prime HD  	frogman_hybrid  http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/prime-hd.png
-ICON    Prime HD  	t8_blue         http://ash.ms/projects/channels/download/icons-t8-blue/png/prime-hd.png
 ICON    Prime HD  	t8_hybrid       http://ash.ms/projects/channels/download/icons-t8-hybrid/png/prime-hd.png
 
 ICON    TVS		wikipedia	http://upload.wikimedia.org/wikipedia/commons/thumb/d/df/TVS_Logo.svg/200px-TVS_Logo.svg.png
