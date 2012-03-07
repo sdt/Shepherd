@@ -11,26 +11,33 @@ use Shepherd::Common qw();
 
 # Map ash.ms channel names to shepherd names
 my %channel_name = (
-    'abc'                        => 'ABC1',
-    'abc-news-24'                => 'ABC News 24',
-    'abc2'                       => 'ABC2 / ABC4',
-    'abc3'                       => 'ABC3',
-    'eleven'                     => 'ELEVEN',
-    'gem'                        => 'GEM',
-    'go'                         => 'GO!',
-    'nbn'                        => 'NBN',
-    'nine'                       => 'Nine',
-    'one'                        => 'ONE HD',
-    'prime'                      => 'Prime',
-    'sbs'                        => 'SBS ONE',
-    'sbs-two'                    => 'SBS TWO',
-    'seven'                      => 'Seven',
-    'seven-mate'                 => '7mate',
-    'seven-two'                  => '7TWO',
-    'southern-cross-television'  => 'SCTV',
-    'southern-cross-ten'         => 'SC10',
-    'ten'                        => 'TEN',
-    'win'                        => 'WIN',
+    'abc'                       => 'ABC1',
+    'abc-news-24'               => 'ABC News 24',
+    'abc2'                      => 'ABC2 / ABC4',
+    'abc3'                      => 'ABC3',
+    'eleven'                    => 'ELEVEN',
+    'gem'                       => 'GEM',
+    'go'                        => 'GO!',
+    'nbn'                       => 'NBN',
+    'nine'                      => 'Nine',
+    'one'                       => 'ONE HD',
+    'prime'                     => 'Prime',
+    'prime-hd'                  => 'Prime HD',
+    'sbs'                       => 'SBS ONE',
+    'sbs-two'                   => 'SBS TWO',
+    'seven'                     => 'Seven',
+    'seven-mate'                => '7mate',
+    'seven-two'                 => '7TWO',
+    'southern-cross-television' => 'SCTV',
+    'southern-cross-ten'        => 'SC10',
+    'ten'                       => 'TEN',
+    'win'                       => 'WIN',
+);
+
+# Remap to a similar variant if necessary
+my %fallbacks = (
+    'Prime HD'                  => 'Prime',
+    'SBS HD'                    => 'SBS ONE',
 );
 
 exit main();
@@ -52,6 +59,10 @@ sub main {
 
         for my $i (keys %{ $t->{icons} }) {
             push(@{ $channel{$i} }, $t);
+        }
+
+        for my $i (sort values %channel_name) {
+            warn "$t->{name} missing $i" unless exists $t->{icons}->{$i};
         }
     }
 
@@ -116,6 +127,9 @@ sub get_theme_icons {
     for my $name (@names) {
         my $channel_name = $channel_name{$name} or next;
         $icon{$channel_name} = "$url$name.png";
+    }
+    for my $name (keys %fallbacks) {
+        $icon{$name} ||= $icon{ $fallbacks{$name} }
     }
     return \%icon;
 }
