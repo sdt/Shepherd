@@ -275,11 +275,6 @@ ICON	TEN	t8_yellow	https://ash.ms/barstool/tv-channel-icons/icons-t8-yellow/png-
 ICON	TEN	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/ten.png
 ICON	TEN	yourtv		http://contentserver.com.au/assets/270216_ten.gif
 
-ICON	TEN HD	standard	http://imagestore.ugbox.net/thumb/ten_953df6f5ce62f91c0068d5a3512f.jpg
-ICON	TEN HD	lyngsat		http://www.lyngsat-logo.com/logo/tv/tt/ten_network_hd.jpg
-ICON	TEN HD	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/ten-hd.png
-ICON	TEN HD	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/ten-hd.png
-
 ICON	ELEVEN	frogman_black	https://ash.ms/barstool/tv-channel-icons/icons-frogman-black/png-myth/eleven.png
 ICON	ELEVEN	frogman_blue	https://ash.ms/barstool/tv-channel-icons/icons-frogman-blue/png-myth/eleven.png
 ICON	ELEVEN	frogman_dark	https://ash.ms/barstool/tv-channel-icons/icons-frogman-dark/png-myth/eleven.png
