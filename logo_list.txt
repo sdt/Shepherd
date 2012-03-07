@@ -57,15 +57,6 @@ ICON    ABC3    t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/
 ICON    ABC3    t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/abc3.png
 ICON	ABC3	yourtv		http://contentserver.com.au/assets/270210_abc-3.gif
 
-ICON	ABC HD	standard	http://img43.imageshack.us/img43/735/abc86ce2a644c39d7ffd529.png
-#ICON	ABC HD	tatey_blue	http://tatey.com/images/au_network_logos/abc-hd.png
-ICON    ABC HD 	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/abc-hd.png
-ICON	ABC HD	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/abc-hd.png
-ICON	ABC HD	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/abc-hd.png
-ICON	ABC HD	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/abc-hd.png
-ICON	ABC HD	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/abc-hd.png
-ICON	ABC HD	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/abc-hd.png
-
 ICON	ABC News 24	wikipedia   http://upload.wikimedia.org/wikipedia/en/thumb/6/6c/ABC_News_24.svg/217px-ABC_News_24.svg.png
 ICON	ABC News 24	frogman_plain   http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/abc-news-24.png
 ICON	ABC News 24	frogman_blue    http://barstool.ash.ms/tv-channel-icons/icons-frogman-blue/png/abc-news-24.png
