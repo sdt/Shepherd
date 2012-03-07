@@ -75,16 +75,6 @@ ICON	Seven	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/s
 ICON	Seven	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/seven.png
 ICON	Seven	yourtv		http://contentserver.com.au/assets/270212_7.gif
 
-ICON	7HD	standard	http://imagestore.ugbox.net/thumb/seven_e69f30e8baff7fcbab28feb8b9.jpg
-ICON	7HD	lyngsat		http://www.lyngsat-logo.com/logo/tv/num/7network_hd.jpg
-#ICON	7HD	tatey_blue	http://tatey.com/images/au_network_logos/seven-hd.png
-ICON	7HD	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/seven-hd.png
-ICON	7HD	frogman_blue	http://ash.ms/projects/channels/download/icons-frogman-blue/png/seven-hd.png
-ICON	7HD	frogman_green	http://ash.ms/projects/channels/download/icons-frogman-green/png/seven-hd.png
-ICON	7HD	frogman_hybrid	http://ash.ms/projects/channels/download/icons-frogman-hybrid/png/seven-hd.png
-ICON	7HD	t8_blue		http://ash.ms/projects/channels/download/icons-t8-blue/png/seven-hd.png
-ICON	7HD	t8_hybrid	http://ash.ms/projects/channels/download/icons-t8-hybrid/png/seven-hd.png
-
 ICON	7mate	frogman_plain	http://barstool.ash.ms/tv-channel-icons/icons-plain-plain/png/seven-mate.png
 ICON	7mate	frogman_blue	http://barstool.ash.ms/tv-channel-icons/icons-frogman-blue/png/seven-mate.png
 ICON	7mate	frogman_green	http://barstool.ash.ms/tv-channel-icons/icons-frogman-green/png/seven-mate.png
