@@ -20,7 +20,7 @@ my %channel_name = (
     'go'                        => 'GO!',
     'nbn'                       => 'NBN',
     'nine'                      => 'Nine',
-    'one'                       => 'ONE HD',
+    'one'                       => 'ONE',
     'prime'                     => 'Prime',
     'prime-hd'                  => 'Prime HD',
     'sbs'                       => 'SBS ONE',
@@ -38,7 +38,6 @@ my %channel_name = (
 my %fallbacks = (
     'Prime HD'                  => 'Prime',
     'SBS HD'                    => 'SBS ONE',
-    'One Digital'               => 'ONE HD',
 );
 
 exit main();
