@@ -1,0 +1,215 @@
+#!/usr/bin/env perl
+
+# Scrapes logo themes from https://ash.ms/projects/channels
+# Writes to STDOUT in logo_list.txt format
+
+# TODO: write out fixed list (comment-out or delete option)
+# TODO: list channels with no icons
+
+use strict;
+use warnings;
+use lib 'references';
+use feature 'say';
+
+use Getopt::Long;
+use Shepherd::Common qw();
+use Data::Dumper::Concise;
+
+my $opt = {
+    'channel-file' => 'references/channel_list',
+    'logo-file'    => 'logo_list.txt',
+};
+
+GetOptions($opt, qw( channel-file logo-file ));
+
+exit main(%$opt);
+
+#------------------------------------------------------------------
+
+sub main {
+    my %arg = @_;
+
+    my $channel_name = get_channel_names($arg{'channel-file'});
+    my @logo_lines = load_logo_list($arg{'logo-file'});
+
+    my @themes = get_themes(\@logo_lines);;
+    my @icons  = get_icons(\@logo_lines);;
+
+    my $warn_line = sub {
+        my $msg = shift;
+        warn "$msg at " . lines(@_) . "\n";
+        warn sprintf("%4s: %s", $_, $logo_lines[$_-1]) for @_;
+        warn "\n";
+    };
+
+    my %theme;
+    for my $t (@themes) {
+        my $p = $theme{ $t->{name} };
+        if ($p) {
+            $warn_line->("DUPLICATE THEME: $t->{name}", $p->{line}, $t->{line});
+            $t = undef;
+            next;
+        }
+        $theme{ $t->{name} } = $t;
+    }
+    @themes = grep { defined } @themes;
+
+    for my $i (@icons) {
+        my $t = $theme{ $i->{theme} };
+        if (!$t) {
+            $warn_line->("NON-EXISTENT THEME: $i->{theme}", $i->{line});
+            $i = undef;
+            next;
+        }
+
+        my $p = $t->{icons}->{ $i->{channel} };
+        if ($p) {
+            $warn_line->("DUPLICATE ICON: $i->{theme}/$i->{channel}",
+                $p->{line}, $i->{line});
+            $i = undef;
+            next;
+        }
+
+        if (!exists $channel_name->{ $i->{channel} }) {
+            $warn_line->("UNKNOWN CHANNEL: $i->{channel}", $i->{line});
+            $i = undef;
+            next;
+        }
+        $t->{icons}->{ $i->{channel} } = $i;
+    }
+    @icons = grep { defined } @icons;
+
+    for my $t (@themes) {
+        if (! %{ $t->{icons} }) {
+            $warn_line->("EMPTY THEME: $t->{name}", $t->{line});
+        }
+    }
+
+    use LWP::UserAgent;
+    my $ua = LWP::UserAgent->new;
+
+    my $count = 0;
+    for my $i (@icons) {
+        my $resp = head($ua, $i->{url});
+        if (! $resp->is_success) {
+            $warn_line->("MISSING ICON: $i->{theme}/$i->{channel}", $i->{line});
+            next;
+        }
+        if ($resp->redirects) {
+            # MythTV rejects these for some reason
+            my $url = $resp->request->uri;
+            $warn_line->("REDIRECT ICON: should be $url", $i->{line});
+        }
+    }
+
+    return 0;
+}
+
+sub lines {
+    if (@_ == 1) {
+        return "line $_[0]";
+    }
+    elsif (@_ >= 2) {
+        my $last = pop @_;
+        local $" = ', ';
+        return "lines @_ and $last";
+    }
+}
+
+sub get_channel_names {
+    my ($filename) = @_;
+    my $fh = openr($filename);
+
+    my %channel_names;
+    while (<$fh>) {
+        chomp;
+        last unless /^.*:(.+)$/;
+        for my $name ( split(/,/, $1) ) {
+            $channel_names{ $name }++;
+        }
+    }
+    return \%channel_names;
+}
+
+sub load_logo_list {
+    my ($filename) = @_;
+    my $fh = openr($filename);
+
+    my @lines = <$fh>;
+    return @lines;
+}
+
+sub get_themes {
+    my ($lines) = @_;
+    my @themes;
+
+    my $lineno = 0;
+    for my $line (@$lines) {
+        $lineno++;
+        if ($line =~ /^THEME/) {
+            $line =~ s/\t/  /g;
+            my (undef, $name, $desc, $url) = split(/\s\s+/, $line, 4);
+            push(@themes, {
+                name => $name,
+                desc => $desc,
+                url => $url,
+                line => $lineno,
+                icons => { },
+            });
+        }
+    }
+    return @themes;
+}
+
+sub get_icons {
+    my ($lines) = @_;
+
+    my @icons;
+
+    my $lineno = 0;
+    for my $line (@$lines) {
+        $lineno++;
+        if ($line =~ /^ICON/) {
+            $line =~ s/\t/  /g;
+            my (undef, $channel, $theme, $url) = split(/\s\s+/, $line, 4);
+            push(@icons, {
+                channel => $channel,
+                theme => $theme,
+                url => $url,
+                line => $lineno,
+            });
+        }
+    }
+    return @icons;
+}
+
+sub openr {
+    my ($filename) = @_;
+    open my $fh, '<', $filename or die "Opening $filename: $!";
+    return $fh;
+}
+
+
+# Be nice to ash.ms - cache the pages we already have
+my $cache;
+my $cache_file = $0 . '.cache';
+
+BEGIN {
+    $cache_file = $0 . '.cache';
+};
+sub head {
+    my ($ua, $url) = @_;
+
+    $cache ||= Shepherd::Common::read_cache($cache_file);
+
+    if (!exists $cache->{$url}) {
+        $cache->{$url} = $ua->head($url)
+            or return;
+    }
+
+    return $cache->{$url};
+}
+
+END {
+    Shepherd::Common::write_cache($cache_file, $cache);
+}
