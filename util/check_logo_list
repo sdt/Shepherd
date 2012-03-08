@@ -4,12 +4,10 @@
 # Writes to STDOUT in logo_list.txt format
 
 # TODO: write out fixed list (comment-out or delete option)
-# TODO: list channels with no icons
 
 use strict;
 use warnings;
 use lib 'references';
-use feature 'say';
 
 use Getopt::Long;
 use Shepherd::Common qw();
@@ -29,15 +27,14 @@ exit main(%$opt);
 sub main {
     my %arg = @_;
 
-    my $channel_name = get_channel_names($arg{'channel-file'});
+    my %channel = get_channels($arg{'channel-file'});
     my @logo_lines = load_logo_list($arg{'logo-file'});
-
     my @themes = get_themes(\@logo_lines);;
     my @icons  = get_icons(\@logo_lines);;
 
     my $warn_line = sub {
         my $msg = shift;
-        warn "$msg at " . lines(@_) . "\n";
+        warn $msg . lines(@_) . "\n";
         warn sprintf("%4s: %s", $_, $logo_lines[$_-1]) for @_;
         warn "\n";
     };
@@ -70,12 +67,14 @@ sub main {
             next;
         }
 
-        if (!exists $channel_name->{ $i->{channel} }) {
+        my $c = $channel{ $i->{channel} };
+        if (!$c) {
             $warn_line->("UNKNOWN CHANNEL: $i->{channel}", $i->{line});
             $i = undef;
             next;
         }
         $t->{icons}->{ $i->{channel} } = $i;
+        $c->{icons}->{ $t->{name} } = $i;
     }
     @icons = grep { defined } @icons;
 
@@ -102,21 +101,32 @@ sub main {
         }
     }
 
+    my @no_icon_channels = sort map { $_->{name} }
+                           grep { ! %{ $_->{icons} } }
+                           values %channel;
+    if (@no_icon_channels) {
+        local $" = "\n";
+        $warn_line->("NO ICONS FOR CHANNEL:\n@no_icon_channels");
+    }
+
     return 0;
 }
 
 sub lines {
     if (@_ == 1) {
-        return "line $_[0]";
+        return " at line $_[0]";
     }
     elsif (@_ >= 2) {
         my $last = pop @_;
         local $" = ', ';
-        return "lines @_ and $last";
+        return " at lines @_ and $last";
+    }
+    else {
+        return '';
     }
 }
 
-sub get_channel_names {
+sub get_channels {
     my ($filename) = @_;
     my $fh = openr($filename);
 
@@ -125,10 +135,10 @@ sub get_channel_names {
         chomp;
         last unless /^.*:(.+)$/;
         for my $name ( split(/,/, $1) ) {
-            $channel_names{ $name }++;
+            $channel_names{ $name } ||= { name => $name, icons => { } };
         }
     }
-    return \%channel_names;
+    return %channel_names;
 }
 
 sub load_logo_list {
