@@ -45,7 +45,7 @@ exit main();
 #------------------------------------------------------------------
 
 sub main {
-    my $base_url = 'https://ash.ms/barstool/tv-channel-icons/';
+    my $base_url = 'http://barstool.ash.ms/tv-channel-icons/';
     my @themes = get_theme_list($base_url);
 
     my %theme;
