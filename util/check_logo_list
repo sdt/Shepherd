@@ -10,6 +10,7 @@ use warnings;
 use lib 'references';
 
 use Getopt::Long;
+use LWP::UserAgent;
 use Shepherd::Common qw();
 use Data::Dumper::Concise;
 
@@ -73,6 +74,19 @@ sub main {
             $i = undef;
             next;
         }
+
+        my $resp = head($i->{url});
+        if (! $resp->is_success) {
+            $warn_line->("MISSING ICON: $i->{theme}/$i->{channel}", $i->{line});
+            $i = undef;
+            next;
+        }
+        if ($resp->redirects) {
+            # MythTV rejects these for some reason
+            my $url = $resp->request->uri;
+            $warn_line->("REDIRECT ICON: should be $url", $i->{line});
+        }
+
         $t->{icons}->{ $i->{channel} } = $i;
         $c->{icons}->{ $t->{name} } = $i;
     }
@@ -81,23 +95,6 @@ sub main {
     for my $t (@themes) {
         if (! %{ $t->{icons} }) {
             $warn_line->("EMPTY THEME: $t->{name}", $t->{line});
-        }
-    }
-
-    use LWP::UserAgent;
-    my $ua = LWP::UserAgent->new;
-
-    my $count = 0;
-    for my $i (@icons) {
-        my $resp = head($ua, $i->{url});
-        if (! $resp->is_success) {
-            $warn_line->("MISSING ICON: $i->{theme}/$i->{channel}", $i->{line});
-            next;
-        }
-        if ($resp->redirects) {
-            # MythTV rejects these for some reason
-            my $url = $resp->request->uri;
-            $warn_line->("REDIRECT ICON: should be $url", $i->{line});
         }
     }
 
@@ -201,18 +198,18 @@ sub openr {
 
 
 # Be nice to ash.ms - cache the pages we already have
-my $cache;
-my $cache_file = $0 . '.cache';
+my ($cache, $cache_file);
 
 BEGIN {
     $cache_file = $0 . '.cache';
 };
 sub head {
-    my ($ua, $url) = @_;
+    my ($url) = @_;
 
     $cache ||= Shepherd::Common::read_cache($cache_file);
 
     if (!exists $cache->{$url}) {
+        my $ua = LWP::UserAgent->new;
         $cache->{$url} = $ua->head($url)
             or return;
     }
