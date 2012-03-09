@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="http://blueprintcss.org/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="http://blueprintcss.org/blueprint/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+    <![endif]-->
+    <title> Shepherd Icon Browser </title>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+$(document).ready(get_icon_list);
+
+function get_icon_list() {
+  $.get('http://localhost:5000/logo_list.txt', parse_icon_list);
+}
+
+function parse_icon_list(text) {
+  var lines = text.split('\n');
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i];
+    if (line.match('^ICON')) {
+      var fields = line.split(/\s\s+|\s*\t\s*/);
+      var imgurl = fields[3];
+      $('#images').append('<img src="' + imgurl + '">');
+    }
+  }
+}
+
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="header" class="span-24 last">
+        <h1> Shepherd Icon Browser </h1>
+      </div>
+      <div id="images">
+      </div>
+    </div>
+  </body>
+</html>
