@@ -6,7 +6,6 @@
 # THEME : theme name : theme description : preview (user) URL
 #
 
-THEME	standard	Standard Free-to-air logos	http://svn.whuffy.com/index.fcgi/wiki/channel_icons
 THEME	lyngsat		Logos from lyngsat-logo.com	http://www.lyngsat-logo.com/tvcountry/au_1.html
 THEME	frogman_hybrid	Hybrid themed logos (Frogman)	http://ash.ms/projects/channels/logos/frogman/hybrid
 THEME	frogman_black	Frogman Black TV Icon Theme	https://ash.ms/projects/channels/frogman-black-tv-icon-theme
@@ -34,7 +33,6 @@ THEME	yourtv		Logos from yourtv.com.au	http://www.yourtv.com.au/guide
 # ICON : channel : theme name : [base_url]+url 
 #
 
-ICON	ABC1	standard	http://img43.imageshack.us/img43/735/abc86ce2a644c39d7ffd529.png
 ICON	ABC1	wikipedia	http://upload.wikimedia.org/wikipedia/en/thumb/8/8e/ABC1.svg/180px-ABC1.svg.png
 ICON	ABC1	lyngsat		http://www.lyngsat-logo.com/logo/tv/aa/abc_tv_au.jpg
 ICON	ABC1	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/abc.png
@@ -58,7 +56,6 @@ ICON	ABC1	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/png
 ICON	ABC1	t8_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/abc.png
 ICON	ABC1	yourtv		http://contentserver.com.au/assets/270208_abc-1.gif
 
-ICON	ABC2 / ABC4	standard	http://img691.imageshack.us/img691/1412/abc25c10eb48094ce03b5e4.png
 ICON	ABC2 / ABC4	wikipedia	http://upload.wikimedia.org/wikipedia/en/thumb/3/38/ABC2.svg/180px-ABC2.svg.png
 ICON	ABC2 / ABC4	lyngsat		http://www.lyngsat-logo.com/logo/tv/aa/abc2_au.jpg
 ICON	ABC2 / ABC4	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/abc2.png
@@ -82,7 +79,6 @@ ICON	ABC2 / ABC4	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yel
 ICON	ABC2 / ABC4	t8_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/abc2.png
 ICON	ABC2 / ABC4	yourtv		http://contentserver.com.au/assets/270209_abc-2.gif
 
-#ICON    ABC3    standard        http://imagestore.ugbox.net/thumb/abc2_5c10eb48094ce03b5e46e8c0ec2.jpg
 ICON    ABC3    wikipedia       http://upload.wikimedia.org/wikipedia/en/thumb/f/fd/ABC3_logo.png/180px-ABC3_logo.png
 #ICON    ABC3    lyngsat         http://www.lyngsat-logo.com/logo/tv/aa/abc2_au.jpg
 ICON    ABC3    frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/abc3.png
@@ -126,7 +122,6 @@ ICON	ABC News 24	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yel
 ICON	ABC News 24	wikipedia   http://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/ABC_News_24_Logo.png/229px-ABC_News_24_Logo.png
 ICON	ABC News 24	yourtv	    http://contentserver.com.au/assets/275718_275459_compressed_abc_radio_24_smallest.gif
 
-ICON	Seven	standard	http://imagestore.ugbox.net/thumb/seven_e69f30e8baff7fcbab28feb8b9.jpg
 ICON	Seven	lyngsat		http://www.lyngsat-logo.com/logo/tv/num/7network_aus.jpg
 ICON	Seven	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/seven.png
 ICON	Seven	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/seven.png
@@ -189,7 +184,6 @@ ICON	7TWO	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/png
 ICON    7TWO	t8_hybrid       http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/seven-two.png
 ICON	7TWO	yourtv		http://contentserver.com.au/assets/270205_7-two.gif
 
-ICON	Nine	standard	http://imagestore.ugbox.net/thumb/nine_53151871dd779ac2304e05ce9b2.jpg
 ICON	Nine	lyngsat		http://www.lyngsat-logo.com/logo/tv/num/9network.jpg
 ICON	Nine	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/nine.png
 ICON	Nine	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/nine.png
@@ -252,7 +246,6 @@ ICON	GO!	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/png-
 ICON    GO!     t8_hybrid       http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/go.png
 ICON	GO!	yourtv		http://contentserver.com.au/assets/270213_go.gif
 
-ICON	TEN	standard	http://imagestore.ugbox.net/thumb/ten_953df6f5ce62f91c0068d5a3512f.jpg
 ICON	TEN	lyngsat		http://www.lyngsat-logo.com/logo/tv/tt/ten_network.jpg
 ICON	TEN	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/ten.png
 ICON	TEN	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/ten.png
@@ -293,7 +286,6 @@ ICON	ELEVEN	t8_plum	http://barstool.ash.ms//tv-channel-icons/icons-t8-plum/png-m
 ICON	ELEVEN	t8_warning	http://barstool.ash.ms//tv-channel-icons/icons-t8-warning/png-myth/eleven.png
 ICON	ELEVEN	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/png-myth/eleven.png
 
-#ICON	ONE	standard	http://imagestore.ugbox.net/thumb/ten_953df6f5ce62f91c0068d5a3512f.jpg
 ICON	ONE	lyngsat		http://www.lyngsat-logo.com/logo/tv/oo/one_hd.jpg
 ICON	ONE	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/one-hd.png
 ICON	ONE	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/one.png
@@ -316,7 +308,6 @@ ICON	ONE	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/png-
 ICON	ONE	t8_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/one-hd.png
 ICON	ONE	yourtv		http://contentserver.com.au/assets/270219_one-hd.gif
 
-ICON	SBS ONE		standard	http://img196.imageshack.us/img196/7526/sbs861c4b17d8fc1856b814.png
 ICON	SBS ONE		lyngsat		http://www.lyngsat-logo.com/logo/tv/ss/sbs.jpg
 ICON	SBS ONE		frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/sbs.png
 ICON	SBS ONE	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/sbs.png
@@ -339,7 +330,6 @@ ICON	SBS ONE	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/
 ICON	SBS ONE		t8_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/sbs.png
 ICON	SBS ONE		yourtv		http://contentserver.com.au/assets/270224_sbs-one.gif
 
-#ICON    SBS TWO         standard        http://imagestore.ugbox.net/thumb/sbs_861c4b17d8fc1856b8142446ddf6.jpg
 ICON    SBS TWO         frogman_hybrid 	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/sbs-two.png
 ICON	SBS TWO	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/sbs-two.png
 ICON	SBS TWO	frogman_blue	http://barstool.ash.ms//tv-channel-icons/icons-frogman-blue/png-myth/sbs-two.png
@@ -361,7 +351,6 @@ ICON	SBS TWO	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/
 ICON    SBS TWO         t8_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/sbs-two.png
 ICON	SBS TWO		yourtv		http://contentserver.com.au/assets/270225_sbs-two.gif
 
-ICON	SBS HD	standard	http://img196.imageshack.us/img196/7526/sbs861c4b17d8fc1856b814.png
 ICON	SBS HD	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/sbs-hd.png
 ICON	SBS HD	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/sbs.png
 ICON	SBS HD	frogman_blue	http://barstool.ash.ms//tv-channel-icons/icons-frogman-blue/png-myth/sbs.png
