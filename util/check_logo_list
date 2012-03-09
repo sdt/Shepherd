@@ -122,7 +122,7 @@ sub main {
                            grep { ! %{ $_->{icons} } }
                            values %channel;
     if (@no_icon_channels) {
-        local $" = "\n";
+        local $" = ', ';
         $warn_line->("NO ICONS FOR CHANNEL:\n@no_icon_channels");
     }
 
@@ -238,5 +238,5 @@ sub head {
 }
 
 END {
-    Shepherd::Common::write_cache($cache_file, $cache);
+    Shepherd::Common::write_cache($cache_file, $cache) if $cache;
 }
