@@ -82,6 +82,13 @@ sub main {
             next;
         }
 
+        # Check the icon url isn't https - not all mythtv installs support this
+        if ($i->{url} =~ /^https:/i) {
+            $warn_line->("HTTPS ICON: $i->{theme}/$i->{channel}", $i->{line});
+            $i = undef;
+            next;
+        }
+
         # Try to get the headers for the icon url
         my $resp = head($i->{url});
 
