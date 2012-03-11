@@ -1,12 +1,11 @@
 <html>
   <head>
-    <link rel="stylesheet" href="http://blueprintcss.org/blueprint/screen.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="http://blueprintcss.org/blueprint/print.css" type="text/css" media="print">
-    <!--[if lt IE 8]>
-      <link rel="stylesheet" href="http://blueprintcss.org/blueprint/ie.css" type="text/css" media="screen, projection">
-    <![endif]-->
     <title> Shepherd Icon Browser </title>
-
+	<style>
+		BODY { font-family: sans-serif; }
+		.tvicon { margin: 5px; }
+		#selector-div { margin-bottom: 10px; }
+	</style>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript">
 
@@ -31,18 +30,17 @@ function parse_icon_list(text) {
         $('<option />', { value: f[1], text: f[2] }).appendTo('#selector');
         break;
       case 'ICON':
-        $('<img />', { src: f[3], title: f[1] }).appendTo('#' + f[2]);
+        $('<img />', { src: f[3], title: f[1], 'class': "tvicon" }).appendTo('#' + f[2]);
         break;
     }
   }
   $('#selector').trigger('change');
 }
-
     </script>
   </head>
   <body>
     <div class="container">
-      <div id="header" class="span-24 last">
+      <div id="header">
         <h1> Shepherd Icon Browser </h1>
       </div>
       <div id="selector-div">
