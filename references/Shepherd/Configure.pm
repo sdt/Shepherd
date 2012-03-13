@@ -1432,6 +1432,21 @@ sub set_icons
     }
 }
 
+sub normalise_channel_id {
+    my ($id) = @_;
+
+    $id =~ s/&amp;|&/and/g;  # replace & with and
+    $id =~ s|[,/]|.*|;       # trim after / or ,
+    $id =~ tr/a-zA-Z0-9//cd; # strip any illegal characters (RFC 2838)
+
+    return $id;
+}
+
+sub validate_channel_id {
+    my ($id) = @_;
+
+    return $id =~ /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)+$/;
+}
 
 
 1;
