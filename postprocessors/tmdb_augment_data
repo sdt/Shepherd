@@ -1,0 +1,134 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use Getopt::Long;
+use LWP::UserAgent;
+use URI::Escape qw( uri_escape );
+use XMLTV;
+
+use lib 'references';
+use Shepherd::json_pp qw( );
+
+my $opt = {
+    api_key                 => $ENV{TMDB_API_KEY},
+    output_file             => "output.xmltv",
+    cache_file              => "$0.storable.cache",
+    lang                    => "en",
+    debug                   => 0,
+    min_duration            => 65, # 65 mins
+    max_duration            => 240,
+    skip_categories         => "Infotainment,Shopping,Business and Finance,Game Show,News,Parliament,Current Affairs,sports,Sport,Weather,Reality,live",
+    dont_augment_desc       => 1, # from 2008/04/15
+};
+
+GetOptions(
+    'region=i'             => \$opt->{region},             #  ignored
+    'days=i'               => \$opt->{days},               #  ignored
+    'offset=i'             => \$opt->{offset},             #  ignored
+    'timezone=s'           => \$opt->{timezone},           #  ignored
+    'channels_file=s'      => \$opt->{channels_file},      #  ignored
+    'config-file=s'        => \$opt->{configfile},         #  ignored
+
+    'min_duration=i'       => \$opt->{min_duration},
+    'max_duration=i'       => \$opt->{max_duration},
+    'skip_categories=s'    => \$opt->{skip_categories},
+    'cache_details_for=i'  => \$opt->{cache_details_for},
+    'cache_title_for=i'    => \$opt->{cache_title_for},
+    'long-info'            => \$opt->{long_info},
+    'dont-augment-desc=i'  => \$opt->{dont_augment_desc},
+    'output=s'             => \$opt->{output_file},
+    'cache-file=s'         => \$opt->{cache_file},
+    'fast'                 => \$opt->{fast},
+    'no-cache'             => \$opt->{no_cache},
+    'debug+'               => \$opt->{debug},
+    'lang=s'               => \$opt->{lang},
+    'no-retry'             => \$opt->{dont_retry},
+    'help'                 => \$opt->{help},
+    'test=s'               => \$opt->{test},
+    'simpletest=s'         => \$opt->{simpletest},
+    'set=s'                => \$opt->{set},
+    'verbose'              => \$opt->{help},
+    'version'              => \$opt->{version},
+    'ready'                => \$opt->{ready},
+    'desc'                 => \$opt->{desc},
+    'v'                    => \$opt->{version},
+);
+
+my $tmdb = PostProcessor::TMDBAugmentData->new($opt);
+exit $tmdb->run() ? 0 : 1;
+
+#-------------------------------------------------------------------------------
+
+package PostProcessor::TMDBAugmentData;
+
+sub new {
+    my ($class, $opt) = @_;
+
+    my $self = {
+        opt => $opt,
+        ua  => UserAgent::Cached->new($opt->{cache_file}),
+
+        url => 'http://api.themoviedb.org/2.1/Movie.search/en/json/'
+             . $opt->{api_key} . '/',
+    };
+    return bless $self, $class;
+}
+
+sub run {
+
+    return 1;
+}
+
+sub movie_search {
+    my ($self, $title, $year) = @_;
+
+    my $uri = $self->{uri} . uri_escape($title);
+    if ($year) {
+        $uri .= "+$year";
+    }
+
+    return $self->{ua}->get($uri);
+}
+
+#-------------------------------------------------------------------------------
+
+package UserAgent::Cached;
+
+use lib 'references';
+use Shepherd::Common qw();
+
+sub new {
+    my ($class, $filename) = @_;
+
+    my $self = {
+        cache    => Shepherd::Common::read_cache($filename),
+        filename => $filename,
+        ua       => LWP::UserAgent->new,
+    };
+
+    bless $self, $class;
+}
+
+sub DESTROY {
+    my ($self) = @_;
+
+    my $cache = $self->{cache};
+    my @expired_cache_entries =
+        grep { ! $cache->{$_}->is_fresh } keys %$cache;
+    delete $cache->{$_} for @expired_cache_entries;
+    Shepherd::Common::write_cache($self->{filename}, $cache);
+}
+
+sub get {
+    my ($self, $uri) = @_;
+
+    my $res = $self->{cache}->{$uri};
+    if ($res && $res->is_fresh) {
+        return $res;
+    }
+    return $self->{cache}->{$uri} = $self->{ua}->get($uri);
+}
+
+1;
