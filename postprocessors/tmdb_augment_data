@@ -5,11 +5,15 @@ use warnings;
 
 use Getopt::Long;
 use LWP::UserAgent;
-use URI::Escape qw( uri_escape );
 use XMLTV;
 
 use lib 'references';
 use Shepherd::json_pp qw( );
+
+my $progname = "tmdb_augment_data";
+my $version = "0.01";
+my $script_start_time = time;
+my %stats;
 
 my $opt = {
     api_key                 => $ENV{TMDB_API_KEY},
@@ -19,7 +23,10 @@ my $opt = {
     debug                   => 0,
     min_duration            => 65, # 65 mins
     max_duration            => 240,
-    skip_categories         => "Infotainment,Shopping,Business and Finance,Game Show,News,Parliament,Current Affairs,sports,Sport,Weather,Reality,live",
+    skip_categories         =>
+        'Infotainment,Shopping,Business and Finance,Game Show,News,' .
+        'Parliament,Current Affairs,sports,Sport,Weather,Reality,live,' .
+        'Talk Show,Lifestyle',
     dont_augment_desc       => 1, # from 2008/04/15
 };
 
@@ -57,39 +64,171 @@ GetOptions(
 );
 
 my $tmdb = PostProcessor::TMDBAugmentData->new($opt);
-exit $tmdb->run() ? 0 : 1;
+$tmdb->run(@ARGV);
+undef $tmdb;
+
+Shepherd::Common::print_stats($progname, $version, $script_start_time, %stats);
+
+exit;
+
+sub make_accessors {
+    my ($class, @fields) = @_;
+
+    no strict 'refs';
+    for my $accessor (@fields) {
+        *{ $class . '::' . $accessor } = sub { return $_[0]->{$accessor} }
+    }
+}
 
 #-------------------------------------------------------------------------------
 
 package PostProcessor::TMDBAugmentData;
+use URI::Escape qw( uri_escape );
 
 sub new {
     my ($class, $opt) = @_;
 
+    my $fh = new IO::File(">".$opt->{output_file})
+        or die "can't open $opt->{output_file} for writing: $!";
+
     my $self = {
         opt => $opt,
         ua  => UserAgent::Cached->new($opt->{cache_file}),
-
-        url => 'http://api.themoviedb.org/2.1/Movie.search/en/json/'
+        uri => 'http://api.themoviedb.org/2.1/Movie.search/en/json/'
              . $opt->{api_key} . '/',
+        writer => new XMLTV::Writer(
+            encoding => 'ISO-8859-1',
+            OUTPUT => $fh,
+        ),
+        skip_category => {
+            map { lc($_) => 1 } split(/,/, $opt->{skip_categories})
+        },
     };
+
+    ::make_accessors($class, keys %$self);
     return bless $self, $class;
 }
 
 sub run {
+    my ($self, @files) = @_;
+
+    $self->writer->start( {
+        'source-info-url' => "http://themoviedb.org",
+        'source-info-name' => "$progname $version",
+        'generator-info-name' => "$progname $version",
+    } );
+
+    for my $file (@files) {
+        Shepherd::Common::log(sprintf("Parsing: %s",
+            ($file eq "-" ? "(from-stdin, hit control-D to finiah)" : $file)));
+        XMLTV::parsefiles_callback(undef, undef,
+            sub { $self->channel_cb(@_) },
+            sub { $self->programme_cb(@_) }, $file);
+    }
+
+    $self->writer->end();
+    Shepherd::Common::log("Finished parsing, output in $opt->{output_file}");
+
+    $self->ua->save_cache;
 
     return 1;
 }
 
-sub movie_search {
-    my ($self, $title, $year) = @_;
+sub channel_cb {
+    my ($self, $channel) = @_;
+    $self->writer->write_channel($channel);
+}
 
-    my $uri = $self->{uri} . uri_escape($title);
+sub programme_cb {
+    my ($self, $prog) = @_;
+    $self->augment_programme($prog);
+    $self->writer->write_programme($prog);
+}
+
+sub augment_programme {
+    my ($self, $prog) = @_;
+
+    my $title = get_programme_field($prog->{title});
+
+    return unless $self->check_title($title);
+	return unless $self->check_category($prog);
+	return unless $self->check_duration($prog);
+
+    $self->movie_search($prog, $title, $prog->{date});
+
+	$stats{included_for_imdb_lookup}++;
+}
+
+sub check_title {
+    my ($self, $title) = @_;
+	if ($title =~ /^(station )?close$/i) {
+		$stats{skipped_due_to_category}++;
+		return;
+    }
+    return 1;
+}
+
+sub check_category {
+    my ($self, $prog) = @_;
+    for my $category_list (@{ $prog->{category} || []}) {
+        for my $category (@$category_list) {
+            if ($self->skip_category->{lc $category_list}) {
+                $stats{skipped_due_to_category}++;
+                return;
+            }
+        }
+    }
+    return 1;
+}
+
+sub check_duration {
+    my ($self, $prog) = @_;
+	my $start = Shepherd::Common::parse_xmltv_date($prog->{start});
+	my $end   = Shepherd::Common::parse_xmltv_date($prog->{stop});
+	if (!$start || !$end) {
+		$stats{excluded_couldnt_parse_time}++;
+		return;
+	}
+	my $duration = (($end - $start) / 60);
+	if ($duration < $self->opt->{min_duration}) {
+		$stats{excluded_prog_too_short}++;
+        return;
+	}
+	if ($duration > $self->opt->{max_duration}) {
+		$stats{excluded_prog_too_long}++;
+		return;
+	}
+    return 1;
+}
+
+sub get_programme_field {
+    my ($field) = @_;
+    return unless $field && $field->[0] && $field->[0]->[0];
+    return $field->[0]->[0];
+}
+
+my %dumped;
+sub movie_search {
+    my ($self, $prog, $title, $year) = @_;
+
+    my $uri = $self->uri . uri_escape($title);
     if ($year) {
         $uri .= "+$year";
     }
 
-    return $self->{ua}->get($uri);
+    my $resp = $self->ua->get($uri);
+    return unless $resp->is_success;
+
+    my $data = JSON::cut_down_PP::decode_json($resp->content);
+    return unless ref $data->[0] eq 'HASH';
+    return $data->[0] if @$data == 1;
+
+    return if $dumped{$uri};
+    use Data::Dumper::Concise;
+    #print Dumper($prog, [ map { [ $_->{name}, $_->{year} ] } @$data ]);
+    map { delete $_->{backdrops}; delete $_->{posters} } @$data;
+    print Dumper($prog, $data), "\n";
+    $dumped{$uri} = 1;
 }
 
 #-------------------------------------------------------------------------------
@@ -108,27 +247,32 @@ sub new {
         ua       => LWP::UserAgent->new,
     };
 
-    bless $self, $class;
-}
-
-sub DESTROY {
-    my ($self) = @_;
-
-    my $cache = $self->{cache};
-    my @expired_cache_entries =
-        grep { ! $cache->{$_}->is_fresh } keys %$cache;
-    delete $cache->{$_} for @expired_cache_entries;
-    Shepherd::Common::write_cache($self->{filename}, $cache);
+    ::make_accessors($class, keys %$self);
+    return bless $self, $class;
 }
 
 sub get {
     my ($self, $uri) = @_;
 
-    my $res = $self->{cache}->{$uri};
+    my $res = $self->cache->{$uri};
     if ($res && $res->is_fresh) {
+        print STDERR "CACHE  HIT on $uri\n";
+        $stats{cache_hits}++;
         return $res;
     }
-    return $self->{cache}->{$uri} = $self->{ua}->get($uri);
+    print STDERR "CACHE miss on $uri\n";
+    $stats{cache_misses}++;
+    return $self->cache->{$uri} = $self->ua->get($uri);
+}
+
+sub save_cache {
+    my ($self) = @_;
+
+    my $cache = $self->cache;
+    my @expired_cache_entries =
+        grep { ! $cache->{$_}->is_fresh } keys %$cache;
+    delete $cache->{$_} for @expired_cache_entries;
+    Shepherd::Common::write_cache($self->filename, $cache);
 }
 
 1;
