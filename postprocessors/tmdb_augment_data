@@ -148,19 +148,19 @@ sub programme_cb {
 sub augment_programme {
     my ($self, $prog) = @_;
 
-    my $title = get_programme_field($prog->{title});
-
-    return unless $self->check_title($title);
+    return unless $self->check_title($prog);
 	return unless $self->check_category($prog);
 	return unless $self->check_duration($prog);
 
-    $self->movie_search($prog, $title, $prog->{date});
+    $self->movie_search($prog);
 
 	$stats{included_for_imdb_lookup}++;
 }
 
 sub check_title {
-    my ($self, $title) = @_;
+    my ($self, $prog) = @_;
+
+    my $title = get_programme_field($prog->{title});
 	if ($title =~ /^(station )?close$/i) {
 		$stats{skipped_due_to_category}++;
 		return;
@@ -170,14 +170,17 @@ sub check_title {
 
 sub check_category {
     my ($self, $prog) = @_;
-    for my $category_list (@{ $prog->{category} || []}) {
-        for my $category (@$category_list) {
-            if ($self->skip_category->{lc $category_list}) {
-                $stats{skipped_due_to_category}++;
-                return;
-            }
-        }
-    }
+    return 1 unless $prog->{category};
+    my @categories = map { lc $_->[0] } @{ $prog->{category} };
+
+    # If one of the categories is movie(s), include it.
+    return 1 if grep { /^movies?$/ } @categories;
+
+    # If it is a skip category, exclude it.
+    my $skip = $self->skip_category;
+    return if grep { $skip->{$_} } @categories;
+
+    # If we get here, include it.
     return 1;
 }
 
@@ -209,9 +212,12 @@ sub get_programme_field {
 
 my %dumped;
 sub movie_search {
-    my ($self, $prog, $title, $year) = @_;
+    my ($self, $prog) = @_;
 
+    my $title = lc get_programme_field($prog->{title});
     my $uri = $self->uri . uri_escape($title);
+
+    my $year = $prog->{date};
     if ($year) {
         $uri .= "+$year";
     }
@@ -220,15 +226,38 @@ sub movie_search {
     return unless $resp->is_success;
 
     my $data = JSON::cut_down_PP::decode_json($resp->content);
-    return unless ref $data->[0] eq 'HASH';
-    return $data->[0] if @$data == 1;
+    if (!$data) {
+        $stats{found_no_data}++;
+        return;
+    }
+    if (ref $data ne 'ARRAY') {
+        $stats{found_unexpected_format}++;
+        return;
+    }
 
-    return if $dumped{$uri};
-    use Data::Dumper::Concise;
-    #print Dumper($prog, [ map { [ $_->{name}, $_->{year} ] } @$data ]);
-    map { delete $_->{backdrops}; delete $_->{posters} } @$data;
-    print Dumper($prog, $data), "\n";
-    $dumped{$uri} = 1;
+    if (ref $data->[0] ne 'HASH') {
+        $stats{found_none}++;
+        return;
+    }
+
+    if (@$data == 1) {
+        $stats{found_one}++;
+        return $data->[0];
+    }
+
+    my @exact_matches = grep { lc $_->{name} eq $title } @$data;
+    if (@exact_matches == 1) {
+        $stats{found_one_title}++;
+        return $exact_matches[0];
+    }
+
+    $stats{found_multiple}++;
+
+#    return if $dumped{$uri};
+#    use Data::Dumper::Concise;
+#    map { delete $_->{backdrops}; delete $_->{posters} } @$data;
+#    print Dumper([$uri, [ map { $_->{name} } @$data ], $prog, $data]), "\n";
+#    $dumped{$uri} = 1;
 }
 
 #-------------------------------------------------------------------------------
@@ -255,14 +284,24 @@ sub get {
     my ($self, $uri) = @_;
 
     my $res = $self->cache->{$uri};
-    if ($res && $res->is_fresh) {
-        print STDERR "CACHE  HIT on $uri\n";
-        $stats{cache_hits}++;
-        return $res;
+    if ($res) {
+        if ($res->is_fresh) {
+            print STDERR "CACHE  HIT on $uri\n";
+            $stats{cache_hits}++;
+            return $res;
+        }
+        else {
+            print STDERR "CACHE EXPIRED on $uri\n";
+            $stats{cache_expiries}++;
+        }
     }
-    print STDERR "CACHE miss on $uri\n";
-    $stats{cache_misses}++;
-    return $self->cache->{$uri} = $self->ua->get($uri);
+    else {
+        print STDERR "CACHE miss on $uri\n";
+        $stats{cache_misses}++;
+    }
+    $res = $self->cache->{$uri} = $self->ua->get($uri);
+    #$self->save_cache;
+    return $res;
 }
 
 sub save_cache {
