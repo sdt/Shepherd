@@ -13,25 +13,33 @@ use LWP::UserAgent;
 use Shepherd::Common qw();
 use Data::Dumper::Concise;
 
+
 my $opt = {
     channel_file => 'references/channel_list',
     logo_file    => 'logo_list.txt',
+    clear_cache  => 0,
 };
 
 GetOptions(
-    'channels-file' => \$opt->{channel_file},
-    'logo-file'     => \$opt->{logo_file},
+    'channels-file=s' => \$opt->{channel_file},
+    'logo-file=s'     => \$opt->{logo_file},
+    'clear-cache'     => \$opt->{clear_cache},
 );
 
-exit main(%$opt);
+my $cache_filename = $0 . '.cache';
+my $cache = load_cache($cache_filename);
+
+main($opt);
+
+save_cache($cache, $cache_filename);
+
+exit 0;
 
 #------------------------------------------------------------------
 
 sub main {
-    my %arg = @_;
-
-    my %channel = get_channels($arg{'channel_file'});
-    my @logo_lines = load_logo_list($arg{'logo_file'});
+    my %channel = get_channels($opt->{'channel_file'});
+    my @logo_lines = load_logo_list($opt->{'logo_file'});
     my @themes = get_themes(\@logo_lines);;
     my @icons  = get_icons(\@logo_lines);;
 
@@ -215,27 +223,39 @@ sub openr {
     return $fh;
 }
 
+sub load_cache {
+    my ($filename) = @_;
 
-# Be nice to ash.ms - cache the pages we already have
-my ($cache, $cache_file);
+    my $cache;
+    if (! $opt->{clear_cache}) {
+        $cache = Shepherd::Common::read_cache($filename);
+    }
 
-BEGIN {
-    $cache_file = $0 . '.cache';
-};
+    return $cache;
+}
+
+sub save_cache {
+    my ($cache, $filename) = @_;
+
+    for my $key (keys %$cache) {
+        if (! $cache->{$key}->is_fresh) {
+            delete $cache->{$key};
+        }
+    }
+
+    Shepherd::Common::write_cache($filename, $cache);
+}
+
 sub head {
     my ($url) = @_;
 
-    $cache ||= Shepherd::Common::read_cache($cache_file);
 
-    if (!exists $cache->{$url}) {
+    if (!exists $cache->{$url} || !$cache->{$url}->is_fresh) {
+        #print STDERR "Fetching $url\n";
         my $ua = LWP::UserAgent->new;
         $cache->{$url} = $ua->head($url)
             or return;
     }
 
     return $cache->{$url};
-}
-
-END {
-    Shepherd::Common::write_cache($cache_file, $cache) if $cache;
 }
