@@ -1,9 +1,8 @@
 #!/usr/bin/env perl
 
-# Scrapes logo themes from https://ash.ms/projects/channels
-# Writes to STDOUT in logo_list.txt format
+# Validates logo_list.txt in various ways
 
-# TODO: write out fixed list (comment-out or delete option)
+# TODO: write out repaired list (comment-out or delete option)
 
 use strict;
 use warnings;
