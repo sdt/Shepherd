@@ -17,11 +17,12 @@ $(document).ready(function() {
       prevtarget.hide();
     prevtarget = $('#' + ev.target.value).show();
   });
-  $.get('logo_list.txt', parse_icon_list);
+  var icon_list_file = 'logo_list.txt';
+  $.get(icon_list_file, parse_icon_list);
 });
 
-function parse_icon_list(text) {
-  var lines = text.split('\n');
+function parse_icon_list(icon_list_text) {
+  var lines = icon_list_text.split('\n');
   for (var i = 0; i < lines.length; i++) {
     var f = lines[i].split(/\s\s+|\s*\t\s*/);
     switch (f[0]) {
