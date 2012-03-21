@@ -506,11 +506,14 @@ ICON	NBN	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/png-
 ICON	NBN		lyngsat		http://www.lyngsat-logo.com/logo/tv/nn/nbn_au.jpg
 ICON	NBN		yourtv		http://contentserver.com.au/assets/270214_nbn.gif
 
+ICON	Channel 31	lyngsat		http://www.lyngsat-logo.com/logo/tv/cc/channel31_melbourne.jpg
+ICON	Channel 31	yourtv		http://services.yourtv.com.au/static/media/312764_c31_80x60.png
+
+ICON    4ME         yourtv       http://services.yourtv.com.au/static/media/325877_4me2.jpg
+
 ICON	Central GTS/BKN	lyngsat		http://www.lyngsat-logo.com/logo/tv/cc/central_gts_bkn.jpg
 ICON	Imparja		lyngsat		http://www.lyngsat-logo.com/logo/tv/ii/imparja.jpg
-ICON	Imparja		yourtv		http://www.imparja.com/images/stories/bignewcube.png
-ICON	Channel 31	lyngsat		http://www.lyngsat-logo.com/logo/tv/cc/channel31_melbourne.jpg
-ICON	Channel 31	yourtv		http://mctcltd.org.au/header.jpg
+ICON	Imparja		yourtv		http://services.yourtv.com.au/static/media/314182_imparja_tv_80x60.png
 ICON	Access 31	lyngsat		http://www.lyngsat-logo.com/logo/tv/aa/access_tv31_perth.jpg
 
 # standard foxtel logos
