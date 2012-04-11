@@ -26,13 +26,11 @@ THEME	t8_warning	T8 Warning TV Icon Theme	https://ash.ms/projects/channels/t8-wa
 THEME	t8_yellow	T8 Yellow TV Icon Theme	https://ash.ms/projects/channels/t8-yellow-tv-icon-theme
 THEME	t8_hybrid	Hybrid themed logos (T8)	http://ash.ms/projects/channels/logos/t8/hybrid
 THEME	foxtel		Standard Foxtel logos		http://www.foxtel.com.au/channel/lineup.html
-THEME	wikipedia	Station logos from wikipedia	http://en.wikipedia.org/
 THEME	yourtv		Logos from yourtv.com.au	http://www.yourtv.com.au/guide
 #
 # ICON : channel : theme name : [base_url]+url 
 #
 
-ICON	ABC1	wikipedia	http://upload.wikimedia.org/wikipedia/en/thumb/8/8e/ABC1.svg/180px-ABC1.svg.png
 ICON	ABC1	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/abc.png
 ICON	ABC1	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/abc.png
 ICON	ABC1	frogman_blue	http://barstool.ash.ms//tv-channel-icons/icons-frogman-blue/png-myth/abc.png
@@ -54,7 +52,6 @@ ICON	ABC1	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/png
 ICON	ABC1	t8_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/abc.png
 ICON	ABC1	yourtv		http://contentserver.com.au/assets/270208_abc-1.gif
 
-ICON	ABC2 / ABC4	wikipedia	http://upload.wikimedia.org/wikipedia/en/thumb/3/38/ABC2.svg/180px-ABC2.svg.png
 ICON	ABC2 / ABC4	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/abc2.png
 ICON	ABC2 / ABC4	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/abc2.png
 ICON	ABC2 / ABC4	frogman_blue	http://barstool.ash.ms//tv-channel-icons/icons-frogman-blue/png-myth/abc2.png
@@ -76,7 +73,6 @@ ICON	ABC2 / ABC4	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yel
 ICON	ABC2 / ABC4	t8_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/abc2.png
 ICON	ABC2 / ABC4	yourtv		http://contentserver.com.au/assets/270209_abc-2.gif
 
-ICON    ABC3    wikipedia       http://upload.wikimedia.org/wikipedia/en/thumb/f/fd/ABC3_logo.png/180px-ABC3_logo.png
 ICON    ABC3    frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/abc3.png
 ICON	ABC3	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/abc3.png
 ICON	ABC3	frogman_blue	http://barstool.ash.ms//tv-channel-icons/icons-frogman-blue/png-myth/abc3.png
@@ -115,7 +111,6 @@ ICON	ABC News 24	t8_orange	http://barstool.ash.ms//tv-channel-icons/icons-t8-ora
 ICON	ABC News 24	t8_plum	http://barstool.ash.ms//tv-channel-icons/icons-t8-plum/png-myth/abc-news-24.png
 ICON	ABC News 24	t8_warning	http://barstool.ash.ms//tv-channel-icons/icons-t8-warning/png-myth/abc-news-24.png
 ICON	ABC News 24	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/png-myth/abc-news-24.png
-ICON	ABC News 24	wikipedia   http://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/ABC_News_24_Logo.png/229px-ABC_News_24_Logo.png
 ICON	ABC News 24	yourtv	    http://contentserver.com.au/assets/275718_275459_compressed_abc_radio_24_smallest.gif
 
 ICON	Seven	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/seven.png
@@ -428,7 +423,6 @@ ICON	SCTV	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/png
 ICON    SCTV  t8_hybrid       http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/southern-cross-television.png
 ICON	SCTV	yourtv		http://contentserver.com.au/assets/270226_sthncrosstv.gif
 
-ICON    Prime	wikipedia       http://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/PrimeTelevision2001.svg/200px-PrimeTelevision2001.svg.png
 ICON    Prime  	frogman_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/prime.png
 ICON	Prime	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/prime.png
 ICON	Prime	frogman_blue	http://barstool.ash.ms//tv-channel-icons/icons-frogman-blue/png-myth/prime.png
@@ -450,7 +444,6 @@ ICON	Prime	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/pn
 ICON    Prime  	t8_hybrid	http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/prime.png
 ICON	Prime	yourtv		http://contentserver.com.au/assets/270221_prime.gif
 
-ICON	Prime HD	wikipedia	http://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/PrimeTelevision2001.svg/200px-PrimeTelevision2001.svg.png
 ICON    Prime HD  	frogman_hybrid  http://barstool.ash.ms/tv-channel-icons/icons-frogman-hybrid/png-myth/prime-hd.png
 ICON	Prime HD	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/prime.png
 ICON	Prime HD	frogman_blue	http://barstool.ash.ms//tv-channel-icons/icons-frogman-blue/png-myth/prime-hd.png
@@ -471,7 +464,6 @@ ICON	Prime HD	t8_warning	http://barstool.ash.ms//tv-channel-icons/icons-t8-warni
 ICON	Prime HD	t8_yellow	http://barstool.ash.ms//tv-channel-icons/icons-t8-yellow/png-myth/prime.png
 ICON    Prime HD  	t8_hybrid       http://barstool.ash.ms/tv-channel-icons/icons-t8-hybrid/png-myth/prime-hd.png
 
-ICON    TVS		wikipedia	http://upload.wikimedia.org/wikipedia/commons/thumb/d/df/TVS_Logo.svg/200px-TVS_Logo.svg.png
 ICON    TVS		yourtv		http://contentserver.com.au/assets/270229_tvs.gif
 
 ICON	NBN	frogman_black	http://barstool.ash.ms//tv-channel-icons/icons-frogman-black/png-myth/nbn.png
